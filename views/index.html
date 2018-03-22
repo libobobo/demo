@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <a href="/publish">点击留言</a>
+    <ul>
+        <% for(var i=0;i<posts.length;i++){%>
+
+            <li>
+                <%=posts[i].name%>留言说：
+                    <%=posts[i].content%>
+            </li>
+            <%}%>
+
+                <!--<% posts.forEach(function (item) { %>
+            <li>
+                <%= item.name %>留言说：
+                    <%= item.content %>
+            </li>
+            <% }) %>-->
+    </ul>
+    <script>
+        // function Foo() {
+        //     getNmae = function () { alert(1); }
+        //     return this;
+        // }
+        // Foo.getName = function () {
+        //     alert(2)
+        // }
+        // Foo.prototype.getName = function () {
+        //     alert(3)
+        // }
+        // var getName = function () {
+        //     alert(4)
+        // }
+        // function getName() {
+        //     alert(5)
+        // }
+        // Foo.getName(); //2
+        // getName(); //4
+        // Foo().getName(); //  4
+        // getName(); // 4
+        // new Foo.getName();//2
+        // new Foo().getName();//3
+        // new new Foo().getName(); //3
+    </script>
+</body>
+
+</html>
