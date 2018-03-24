@@ -1,15 +1,8 @@
-const express = require("express"); //引入express 模块
-const bodyParser = require('body-parser')//引入body-parser模块 方便拿到请求体数据 
-const fs = require('fs')//引入文件读写 模块
-const app = express(); //创建一个服务
-console.log(express);
-app.engine('html', require('express-art-template'))//为服务配置读写html文件模版
+const fs = require("fs")
+const express = require("express")
 
-app.use(bodyParser.urlencoded({ extended: false }))
 
-app.use(bodyParser.json())//配置boayparser 
-
-app.get("/", (ret, res) => { //创建一个标识为 / 的请求
+exports.showIndex = (ret, res) => { //创建一个标识为 / 的请求
 
     fs.readFile("./data.json", (err, data) => {
         if (err) {
@@ -24,14 +17,13 @@ app.get("/", (ret, res) => { //创建一个标识为 / 的请求
         });
     })
 
-})
+}
 
-app.get("/publish", (ret, res) => { //创建一个标识为 /publish 的请求 指向./publish.html
+
+exports.showPublish = (ret, res) => { //创建一个标识为 /publish 的请求 指向./publish.html
     res.render("./publish.html");
-})
-
-
-app.post("/publish", (ret, res) => {
+}
+exports.publish = (ret, res) => {
 
     const body = ret.body //得到表单提交的 表单对象
     body.time = '2018-3-22 16:23:27'
@@ -58,8 +50,4 @@ app.post("/publish", (ret, res) => {
 
     })
 
-})
-
-app.listen("3000", err => {
-    console.log("running");
-})
+}
